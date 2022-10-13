@@ -1,17 +1,26 @@
 import movieData from "./movieData";
 import React, { Component } from 'react';
 import Movie from "./components/Movie";
+import Navbar from "./components/Navbar"
 
 class App extends Component {
   constructor(){
     super()
-    this.state = {...movieData} 
+    this.state = {...movieData}
   }
-  
 
-  render() { 
+
+  render() {
+    const flexStyle = {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
     return (
-      <Movie movies={this.state.movies} />
+      <div style={flexStyle}>
+        <Navbar />
+        <Movie movies={this.state.movies} />
+      </div>
     );
   }
 }
