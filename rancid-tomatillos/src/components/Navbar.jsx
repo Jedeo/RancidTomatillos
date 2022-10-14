@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = ({home}) => {
+ // console.log(home);
   const navStyle = {
     border: "1px solid",
     margin: 10,
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav style={navStyle}>
-      <h1 style={{marginLeft: 10}}>Rotten Tomatillos</h1>
+      <h1 onClick={() => {home()}} style={{marginLeft: 10}}>Rotten Tomatillos</h1>
       <form style={{margin: 10}}>
         <input style={{margin: 10}} />
         <button>Search</button>
