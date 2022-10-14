@@ -1,21 +1,20 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const Movie = ({movies}) => {
-    const movieDataStyle = {
-        marginLeft: "20rem",
-        display: "flex",
-        flexWrap: 'wrap',
-
-    }
-    const moviesData = movies.map(movie => <MovieCard movieInfo={movie} />)
-    return(
-        <div style={movieDataStyle}>
-            {moviesData}
-        </div>
-    )
-}
-
-
+const Movie = ({ movies, handleClick }) => {
+  const movieDataStyle = {
+    marginLeft: "20rem",
+    display: "flex",
+    flexWrap: "wrap",
+  };
+  const moviesData = movies.map((movie, index) => (
+    <MovieCard key={index} handleClick={handleClick} movieInfo={movie} />
+  ));
+  return (
+    <div style={movieDataStyle}>
+      {moviesData}
+    </div>
+  );
+};
 
 export default Movie;
