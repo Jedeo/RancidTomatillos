@@ -16,16 +16,20 @@ class App extends Component {
     };
   }
 
- componentDidMount () {
-  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
-    .then(data => this.setState({movies: data.movies}))
-    .catch(err => {
-      if(err === 500) {
-        this.setState({error: true})
-      }
-    })
-}
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = () => {
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+      .then((response) => response.json())
+      .then((data) => this.setState({ movies: data.movies }))
+      .catch((err) => {
+        if (err === 500) {
+          this.setState({ error: true });
+        }
+      });
+  };
 
   handleClick = (movieDetails) => {
     let clickedMovie = { ...this.state.movie };
@@ -39,15 +43,33 @@ class App extends Component {
     }
   };
   handleHome = () => {
-    let home = {...this.state.movie}
-    this.setState({movie: { isClick: false, home}});
+    let home = { ...this.state.movie };
+    this.setState({ movie: { isClick: false, home } });
   };
 
   handleDetailPage = () => {
     if (this.state.movie.isClick === false) {
       return "hidden";
     }
-  }
+  };
+
+  handleSearch = (movieName) => {
+    const allMovies = { ...this.state };
+    const movieList = allMovies.movies.filter((movie) => {
+      return movie.title.toLowerCase().includes(movieName.toLowerCase());
+    });
+
+    if (movieName.length !== 0) {
+      this.setState({
+        movies: movieList,
+      });
+    }
+
+    if (movieName.length == 0 || movieList.length === 0) {
+      this.fetchData();
+    }
+    return <span>Sorry the movie is not available</span>;
+  };
 
   render() {
     console.log(this.state.movies);
@@ -58,8 +80,13 @@ class App extends Component {
     };
     return (
       <main style={flexStyle}>
-
-        {!this.state.error && <Navbar home={this.handleHome} hidden={this.handleHidden} />}
+        {!this.state.error && (
+          <Navbar
+            handleSearch={this.handleSearch}
+            home={this.handleHome}
+            hidden={this.handleHidden}
+          />
+        )}
         {this.state.error && <h2>Server Error, please try again...</h2>}
         {this.state.movie.isClick === false && (
           <div className={this.handleHidden}>
