@@ -1,16 +1,23 @@
 import React from "react";
 
 const MovieCard = ({ movieInfo, handleClick }) => {
- const imgStyle = {
+  const imgStyle = {
     height: "30rem",
-    width:"25rem",
-    margin: 10
- }
+    width: "25rem",
+    margin: 10,
+  };
 
-  const posterImg = <img onClick={()=>handleClick(movieInfo)} style={imgStyle} src={movieInfo.poster_path} alt={movieInfo.title} />;
+  const posterImg = (
+    <img
+      onClick={() => handleClick(movieInfo)}
+      style={imgStyle}
+      src={movieInfo.poster_path}
+      alt={movieInfo.title}
+    />
+  );
   return (
     <div>
-      {posterImg}
+     {posterImg}
     </div>
   );
 };
