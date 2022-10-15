@@ -2,6 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const Movie = ({ movies, handleClick }) => {
+  console.log(movies)
   const movieDataStyle = {
     marginLeft: "20rem",
     display: "flex",
