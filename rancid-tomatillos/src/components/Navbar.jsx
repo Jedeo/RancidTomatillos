@@ -1,7 +1,8 @@
 import React from 'react'
+import Form from './Form'
+import {Link} from 'react-router-dom'
 
-const Navbar = ({home}) => {
- // console.log(home);
+const Navbar = ({home, handleSearch, hidden}) => {
   const navStyle = {
     border: "1px solid",
     margin: 10,
@@ -15,10 +16,7 @@ const Navbar = ({home}) => {
   return (
     <nav style={navStyle}>
       <h1 onClick={() => {home()}} style={{marginLeft: 10}}>Rotten Tomatillos</h1>
-      <form style={{margin: 10}}>
-        <input style={{margin: 10}} />
-        <button>Search</button>
-      </form>
+     <Form handleSearch={handleSearch} hidden={hidden}/>
     </nav>
   )
 }
