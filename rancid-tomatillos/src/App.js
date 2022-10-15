@@ -15,6 +15,7 @@ class App extends Component {
       },
     };
   }
+
   handleClick = (movieDetails) => {
     let clickedMovie = { ...this.state.movie };
     clickedMovie = movieDetails;
@@ -26,16 +27,34 @@ class App extends Component {
       return "hidden";
     }
   };
+
   handleHome = () => {
-    let home = {...this.state.movie}
-    this.setState({movie: { isClick: false, home}});
+    let home = { ...this.state.movie };
+    this.setState({ movie: { isClick: false, home } });
   };
 
   handleDetailPage = () => {
     if (this.state.movie.isClick === false) {
       return "hidden";
     }
-  }
+  };
+
+  handleSearch = (movieName) => {
+    if (movieName.length !== 0) {
+      const allMovies = { ...this.state };
+      this.setState({
+        movies: allMovies.movies.filter((movie) => {
+          return movie.title.toLowerCase().includes(movieName.toLowerCase());
+        }),
+      });
+    }
+
+    if (movieName.length == 0) {
+      this.setState({
+        ...movieData,
+      });
+    }
+  };
 
   render() {
     const flexStyle = {
@@ -45,16 +64,16 @@ class App extends Component {
     };
     return (
       <main style={flexStyle}>
-        <Navbar home={this.handleHome} />
+        <Navbar handleSearch={this.handleSearch} hidden={this.handleHidden} home={this.handleHome} />
 
         {this.state.movie.isClick === false && (
-          <div className={this.handleHidden}>
+          <div className={this.handleHidden()}>
             <Movie handleClick={this.handleClick} movies={this.state.movies} />{" "}
           </div>
         )}
 
         {this.state.movie.isClick === true && (
-          <div className={this.handleDetailPage}>
+          <div className={this.handleDetailPage()}>
             <MovieDetails details={this.state.movie} />{" "}
           </div>
         )}
