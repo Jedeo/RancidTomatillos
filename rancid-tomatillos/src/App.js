@@ -72,14 +72,8 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.movies);
-    const flexStyle = {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    };
     return (
-      <main style={flexStyle}>
+      <main className="flexStyle">
         {!this.state.error && (
           <Navbar
             handleSearch={this.handleSearch}
