@@ -1,7 +1,6 @@
 .navSection {
-  display: flex;
-  align-items: center;
-  width: 100vw;
+  position: relative;
+  right: 59px;
 }
 
 .mainNav {
@@ -9,7 +8,6 @@
   padding: 20px;
   font: bold;
   margin: 10;
-  width: 70vw;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -30,7 +28,6 @@
 .header {
   color: white;
   margin-left: 20px;
-  margin-right: 50%;
 }
 
 .searchForm {
