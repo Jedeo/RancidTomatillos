@@ -39,7 +39,6 @@ class App extends Component {
 
     this.setState({ movie: {clickedMovie } });
   };
-  
 
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
@@ -90,23 +89,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {!this.state.error && (
-//   <Navbar
-//     handleSearch={this.handleSearch}
-//     home={this.handleHome}
-//     hidden={this.handleHidden}
-//   />
-// )}
-// {this.state.error && <h2>Server Error, please try again...</h2>}
-// {this.state.movie.isClick === false && (
-//   <div className={this.handleHidden}>
-//     <Movie handleClick={this.handleClick} movies={this.state.movies} />{" "}
-//   </div>
-// )}
-
-// {this.state.movie.isClick === true && (
-//   <div className={this.handleDetailPage}>
-//     <MovieDetails details={this.state.movie} />{" "}
-//   </div>
-// )}
