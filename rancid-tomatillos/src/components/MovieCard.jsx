@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './MovieCard.css'
 
 const MovieCard = ({ movieInfo, handleClick }) => {
@@ -13,7 +14,7 @@ const MovieCard = ({ movieInfo, handleClick }) => {
   );
   return (
     <div className="individualCard">
-     {posterImg}
+        <Link to={`/movieDetails/${movieInfo.title}`}> {posterImg} </Link>
     </div>
   );
 };

@@ -4,6 +4,8 @@ const Details = ({ details }) => {
   const clickedImage = <img style={{width:300, height:400}}src={details.poster_path} />
   const backimg ={
     backgroundImage: `url(${details.backdrop_path})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
     height: '40vw',
     width: '80vw'
   }

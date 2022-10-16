@@ -18,9 +18,8 @@ class Form extends Component {
   };
 
   render() {
-    const { hidden } = this.props;
     return (
-      <form className={hidden()}>
+      <form className="form-Content">
         <input
           className="searchInput"
           name="searchedMovie"

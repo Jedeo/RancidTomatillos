@@ -1,18 +1,21 @@
 .searchInput {
-   border: 1px solid grey;
-   border-radius: 5px;
-   height: 30px;
-   width: 100%;
-   padding: 2px 23px 2px 30px;
-   outline: 0;
-   background-color: #141414;
-   margin: 10px;
-   color: white;
-
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #141414;
+  margin: 10px;
+  color: white;
 }
 .searchInput:hover {
   transition: 1s;
   border: 1.5px solid #009688;
   background-color: white;
   color: black;
+}
+
+.form-Content {
+  margin-right: 5vw;
 }
