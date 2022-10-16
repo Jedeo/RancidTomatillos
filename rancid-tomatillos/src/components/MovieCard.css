@@ -1,0 +1,16 @@
+.posterImg {
+  height: 20rem;
+  width: 15rem;
+  padding:20px;
+  margin:20px;
+  opacity: 0.8;
+  background-color: #141414;
+  border-radius: 30px;
+}
+
+.posterImg:hover {
+  background-position: 0;
+  opacity: 1;
+  box-shadow: 3px 1px 4px 2px #141414;
+  background-color: black;
+}

@@ -1,18 +1,13 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import "./Movie.css"
 
 const Movie = ({ movies, handleClick }) => {
-  console.log(movies)
-  const movieDataStyle = {
-    marginLeft: "20rem",
-    display: "flex",
-    flexWrap: "wrap",
-  };
   const moviesData = movies.map((movie, index) => (
     <MovieCard key={index} handleClick={handleClick} movieInfo={movie} />
   ));
   return (
-    <div style={movieDataStyle}>
+    <div className="movieData">
       {moviesData}
     </div>
   );

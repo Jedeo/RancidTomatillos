@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import './Form.css'
+
+
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -17,12 +20,12 @@ class Form extends Component {
   render() {
     const { hidden } = this.props;
     return (
-      <form className={hidden()} style={{ margin: 10 }}>
+      <form className={hidden()}>
         <input
+          className="searchInput"
           name="searchedMovie"
           value={this.state.searchedMovie}
           onChange={this.handleChange}
-          style={{ margin: 10 }}
           placeholder="Search Movie"
         />
       </form>

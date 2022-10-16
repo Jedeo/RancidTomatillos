@@ -1,0 +1,38 @@
+.navSection {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+
+.mainNav {
+  margin: 20px;
+  padding: 20px;
+  font: bold;
+  margin: 10;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+
+}
+.potatoImg {
+  margin-left: 10px;
+}
+.potatoImg:hover {
+  transition: 1s;
+  background-position: 0;
+  opacity: 1;
+  box-shadow: 3px 1px 4px 2px #5A5A53;
+  background-color: #141414;
+  border-radius: 10px;
+}
+
+.header {
+  color: white;
+  margin-left: 20px;
+  margin-right: 50%;
+}
+
+.searchForm {
+  margin-left: 20px;
+}
