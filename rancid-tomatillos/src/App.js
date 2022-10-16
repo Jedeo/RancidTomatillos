@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Movie from "./components/Movie";
 import Navbar from "./components/Navbar";
 import MovieDetails from "./components/MovieDetails";
+import { Route, Switch } from "react-router-dom";
+import Form from "./components/Form";
 import "./App.css";
 
 class App extends Component {
@@ -35,23 +37,9 @@ class App extends Component {
     let clickedMovie = { ...this.state.movie };
     clickedMovie = movieDetails;
 
-    this.setState({ movie: { isClick: true, clickedMovie } });
+    this.setState({ movie: {clickedMovie } });
   };
-  handleHidden = () => {
-    if (this.state.movie.isClick === true) {
-      return "hidden";
-    }
-  };
-  handleHome = () => {
-    let home = { ...this.state.movie };
-    this.setState({ movie: { isClick: false, home } });
-  };
-
-  handleDetailPage = () => {
-    if (this.state.movie.isClick === false) {
-      return "hidden";
-    }
-  };
+  
 
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
@@ -74,28 +62,51 @@ class App extends Component {
   render() {
     return (
       <main className="flexStyle">
-        {!this.state.error && (
-          <Navbar
-            handleSearch={this.handleSearch}
-            home={this.handleHome}
-            hidden={this.handleHidden}
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <React.Fragment>
+                <div className="navbarForm">
+                <Navbar handleSearch={this.handleSearch}/>
+                <Form className="searchForm" handleSearch={this.handleSearch}/> 
+                </div>
+                <Movie
+                  handleClick={this.handleClick}
+                  movies={this.state.movies}
+                />{" "}
+              </React.Fragment>
+            )}
           />
-        )}
-        {this.state.error && <h2>Server Error, please try again...</h2>}
-        {this.state.movie.isClick === false && (
-          <div className={this.handleHidden}>
-            <Movie handleClick={this.handleClick} movies={this.state.movies} />{" "}
-          </div>
-        )}
-
-        {this.state.movie.isClick === true && (
-          <div className={this.handleDetailPage}>
-            <MovieDetails details={this.state.movie} />{" "}
-          </div>
-        )}
+          <Route
+            path="/movieDetails"
+            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.movie} /> </div>}
+          />
+        </Switch>
       </main>
     );
   }
 }
 
 export default App;
+
+// {!this.state.error && (
+//   <Navbar
+//     handleSearch={this.handleSearch}
+//     home={this.handleHome}
+//     hidden={this.handleHidden}
+//   />
+// )}
+// {this.state.error && <h2>Server Error, please try again...</h2>}
+// {this.state.movie.isClick === false && (
+//   <div className={this.handleHidden}>
+//     <Movie handleClick={this.handleClick} movies={this.state.movies} />{" "}
+//   </div>
+// )}
+
+// {this.state.movie.isClick === true && (
+//   <div className={this.handleDetailPage}>
+//     <MovieDetails details={this.state.movie} />{" "}
+//   </div>
+// )}
