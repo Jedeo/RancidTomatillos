@@ -1,9 +1,10 @@
 import React from "react";
 import Details from "./Details";
+import './MovieDetails.css'
 
 const MovieDetails = ({details}) => {
     return (
-        <div>
+        <div className="movieDetailsContainer">
             <Details details={details.clickedMovie}/>
         </div>
     )

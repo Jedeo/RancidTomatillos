@@ -5,8 +5,12 @@ align-items: center;
 }
 
 .navbarForm {
-  width: 86vw;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.navbarMovieDetails {
+  width: 100vw;
 }

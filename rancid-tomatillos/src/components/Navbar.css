@@ -1,20 +1,22 @@
 .navSection {
-  position: relative;
-  right: 59px;
+  /* position: relative; */
+  width: 100%;
+  /* right: 59px; */
 }
 
 .mainNav {
+  width: 100%;
   margin: 20px;
   padding: 20px;
   font: bold;
-  margin: 10;
   display: flex;
   align-items: center;
   border-radius: 10px;
 
 }
 .potatoImg {
-  margin-left: 10px;
+  height: 3vw;
+  width: 3vw;
 }
 .potatoImg:hover {
   transition: 1s;
@@ -26,6 +28,7 @@
 }
 
 .header {
+  font-size: 1.2vw;
   color: white;
   margin-left: 20px;
 }
