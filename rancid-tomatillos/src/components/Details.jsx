@@ -1,13 +1,13 @@
 import React from "react";
 import './Details.css'
 const Details = ({ details }) => {
-  const clickedImage = <img style={{width:300, height:400}}src={details.poster_path} />
+  const clickedImage = <img style={{width:"15vw", height:"22.5vw"}}src={details.poster_path} />
   const backimg ={
     backgroundImage: `url(${details.backdrop_path})`,
+    height: '35vw',
+    width: '70vw',
     backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: '40vw',
-    width: '80vw'
+    backgroundRepeat: "no-repeat"
   }
   return (
     <section style={backimg} className="detailsContainer">

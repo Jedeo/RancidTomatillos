@@ -5,6 +5,7 @@
  width: 90vw;
  border-radius: 10px;
 
+
 }
 
 .moviePoster,.movieDetails{
@@ -17,7 +18,8 @@
 }
 
 .movieDetails {
-
+    font-size: 1vw;
+    height: 20vw;
     width: 30vw;
     text-align: center;
 }

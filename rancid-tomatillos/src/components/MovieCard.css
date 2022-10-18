@@ -1,8 +1,8 @@
 .posterImg {
-  height: 20rem;
-  width: 15rem;
-  padding:20px;
-  margin:20px;
+  height: 20vw;
+  width: 15vw;
+  padding:1vw;
+  margin:1vw;
   opacity: 0.8;
   background-color: #141414;
   border-radius: 30px;
