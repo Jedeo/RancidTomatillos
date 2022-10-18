@@ -5,12 +5,19 @@
   margin:1vw;
   opacity: 0.8;
   background-color: #141414;
-  border-radius: 30px;
+  border-radius: 10px;
+  transition: all ease-in-out .2s;
+
 }
 
 .posterImg:hover {
   background-position: 0;
   opacity: 1;
+  height: 22vw;
+  width: 16.5vw;
   box-shadow: 3px 1px 4px 2px #141414;
   background-color: black;
+  transform: scale(1);
+  transform: rotate(-2deg);
+  transition: all ease-in-out .2s;
 }
