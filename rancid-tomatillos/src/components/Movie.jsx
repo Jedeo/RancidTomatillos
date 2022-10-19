@@ -3,8 +3,9 @@ import MovieCard from "./MovieCard";
 import "./Movie.css"
 
 const Movie = ({ movies, handleClick }) => {
+
   const moviesData = movies.map((movie, index) => (
-    <MovieCard key={index} handleClick={handleClick} movieInfo={movie} />
+    <MovieCard  key={index} handleClick={handleClick} movieInfo={movie} />
   ));
   return (
     <div className="movieData">
