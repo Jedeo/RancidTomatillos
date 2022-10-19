@@ -14,6 +14,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      selectedMovie: {},
       error: false,
       movie: {
         isClick: false,
@@ -36,13 +37,15 @@ class App extends Component {
       });
   };
 
-  handleClick = (movieDetails) => {
-    let clickedMovie = { ...this.state.movie };
-    clickedMovie = movieDetails;
 
-    this.setState({ movie: {clickedMovie } });
-  };
 
+  handleClick = (id) => {
+    this.setState({selectedMovie: {}})
+    const clickedMovie = this.state.movies.find(movie => movie.id === id)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2//movies/${clickedMovie.id}`)
+      .then(response => response.json())
+      .then(data => this.setState({ selectedMovie: data.movie }))
+  }
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
     const movieList = allMovies.movies.filter((movie) => {
@@ -62,6 +65,7 @@ class App extends Component {
   };
 
   render() {
+    {console.log(this.state.selectedMovie)}
     return (
       <main className="flexStyle">
         <Switch>
@@ -71,7 +75,7 @@ class App extends Component {
             render={() => (
               <React.Fragment>
                 <div className="navbarForm">
-                <Navbar handleSearch={this.handleSearch}/>
+                <Navbar handleSearch={this.handleSearch} />
                 <Form className="searchForm" handleSearch={this.handleSearch}/>
                 </div>
                 <Movie
@@ -83,7 +87,7 @@ class App extends Component {
           />
           <Route
             path="/movieDetails"
-            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.movie} /> </div>}
+            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.selectedMovie} /> </div>}
           />
         </Switch>
       </main>

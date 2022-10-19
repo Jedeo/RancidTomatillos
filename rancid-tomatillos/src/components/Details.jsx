@@ -1,7 +1,10 @@
 import React from "react";
 import './Details.css'
+
+
 const Details = ({ details }) => {
-  const clickedImage = <img style={{width:"15vw", height:"22.5vw"}}src={details.poster_path} />
+  console.log(details)
+  const clickedImage = <img style={{width:"17.5vw", height:"25vw"}}src={details.poster_path} />
   const backimg ={
     backgroundImage: `url(${details.backdrop_path})`,
     height: '35vw',
@@ -14,14 +17,14 @@ const Details = ({ details }) => {
       <div className="moviePoster">{clickedImage}</div>
       <div className="movieDetails">
         <h1>{details.title}</h1>
+        <h3>{details.overview}</h3>
         <p>Release date: {details.release_date} </p>
         <p>Average rating: {details.average_rating}</p>
         <p>Genres: {details.genres}</p>
         <p>Budget: {details.budget}</p>
         <p>Revenue: {details.revenue}</p>
-        <p>Runtime: {details.runtime}</p>
-        <p>Tagline: {details.tagline}</p>
-        <p>{details.overview}</p>
+        <p>Runtime: {details.runtime} min</p>
+
 
       </div>
     </section>

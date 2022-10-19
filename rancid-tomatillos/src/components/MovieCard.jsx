@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import './MovieCard.css'
 
 const MovieCard = ({ movieInfo, handleClick }) => {
-
+  console.log(movieInfo)
   const posterImg = (
     <img
       className="posterImg"
-      onClick={() => handleClick(movieInfo)}
+      onClick={() => handleClick(movieInfo.id)}
       src={movieInfo.poster_path}
       alt={movieInfo.title}
     />
   );
   return (
     <div className="individualCard">
-        <Link to={`/movieDetails/${movieInfo.title}`}> {posterImg} </Link>
+        <Link to={`/movieDetails/${movieInfo.id}`}> {posterImg} </Link>
     </div>
   );
 };

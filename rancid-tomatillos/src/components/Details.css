@@ -1,9 +1,16 @@
+
+
+img {
+  border-radius: 10px;
+}
+
 .detailsContainer{
  display: flex;
  justify-content: space-around;
  align-items: center;
  width: 90vw;
  border-radius: 10px;
+ height: fit-content;
 
 
 }
@@ -13,13 +20,14 @@
     margin: 8px;
     border-radius: 10px;
     background-color: #141414;
-    opacity: 0.8;
+    opacity: 0.95;
     color: white;
 }
 
 .movieDetails {
     font-size: 1vw;
-    height: 20vw;
     width: 30vw;
-    text-align: center;
+    text: fit-content;
+    height: fit-Content;
+
 }
