@@ -12,7 +12,6 @@ class Form extends Component {
   handleChange = (event) => {
     const currentState = this.state;
     currentState[event.currentTarget.name] = event.currentTarget.value;
-
     this.setState({ currentState });
     this.props.handleSearch(this.state.searchedMovie);
   };

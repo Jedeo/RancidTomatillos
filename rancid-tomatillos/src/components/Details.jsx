@@ -3,7 +3,6 @@ import './Details.css'
 
 
 const Details = ({ details }) => {
-  console.log(details)
   const clickedImage = <img style={{width:"17.5vw", height:"25vw"}}src={details.poster_path} />
   const backimg ={
     backgroundImage: `url(${details.backdrop_path})`,

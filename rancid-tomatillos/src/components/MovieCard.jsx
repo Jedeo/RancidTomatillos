@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import './MovieCard.css'
 
 const MovieCard = ({ movieInfo, handleClick }) => {
-  console.log(movieInfo)
   const posterImg = (
     <img
       className="posterImg"
