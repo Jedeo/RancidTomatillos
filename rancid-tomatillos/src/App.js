@@ -32,11 +32,8 @@ class App extends Component {
       .then((response) => {
         if(response.ok) {
           return response.json()
-        } else if (response.status === 500) {
-          throw new Error(this.setState({errorMessage: response.status}))
-        } else {
-          throw new Error(this.setState({errorMessage: response.status}))
         }
+        throw new Error(this.setState({errorMessage: response.status}))
       })
       .then((data) => this.setState({ movies: data.movies }))
       .catch((err) => this.setState({error: true }))
@@ -47,7 +44,7 @@ class App extends Component {
   handleClick = (id) => {
     this.setState({selectedMovie: {}})
     const clickedMovie = this.state.movies.find(movie => movie.id === id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2//movies/${clickedMovie.id}`)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${clickedMovie.id}`)
       .then(response => response.json())
       .then(data => this.setState({ selectedMovie: data.movie }))
   }
