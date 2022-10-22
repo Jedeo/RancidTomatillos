@@ -42,12 +42,9 @@ class App extends Component {
 
 
   handleClick = (id) => {
-    this.setState({selectedMovie: {}})
-    const clickedMovie = this.state.movies.find(movie => movie.id === id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${clickedMovie.id}`)
-      .then(response => response.json())
-      .then(data => this.setState({ selectedMovie: data.movie }))
+    window.localStorage.setItem('Id', JSON.stringify(id))
   }
+  
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
     const movieList = allMovies.movies.filter((movie) => {
@@ -90,7 +87,7 @@ class App extends Component {
           />
           <Route
             path="/movieDetails"
-            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.selectedMovie} /> </div>}
+            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.selectedMovie}/> </div>}
           />
         </Switch>
       </main>

@@ -29,5 +29,10 @@ img {
     width: 30vw;
     text: fit-content;
     height: fit-Content;
+}
 
+.movieDetails h3 {
+  width: 30vw;
+  height: 10vh;
+  overflow: auto;
 }
