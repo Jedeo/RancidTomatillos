@@ -1,33 +1,48 @@
-import React from "react";
-import './Details.css'
+import React, { Component } from "react";
+import "./Details.css";
+import { render } from "@testing-library/react";
 
-
-const Details = ({ details }) => {
-  const clickedImage = <img style={{width:"17.5vw", height:"25vw"}}src={details.poster_path} />
-  const backimg ={
-    backgroundImage: `url(${details.backdrop_path})`,
-    height: '35vw',
-    width: '70vw',
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat"
+class Details extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedMovie: {},
+    };
   }
-  return (
-    <section style={backimg} className="detailsContainer">
-      <div className="moviePoster">{clickedImage}</div>
-      <div className="movieDetails">
-        <h1>{details.title}</h1>
-        <h3>{details.overview}</h3>
-        <p>Release date: {details.release_date} </p>
-        <p>Average rating: {details.average_rating}</p>
-        <p>Genres: {details.genres}</p>
-        <p>Budget: {details.budget}</p>
-        <p>Revenue: {details.revenue}</p>
-        <p>Runtime: {details.runtime} min</p>
 
+  
 
-      </div>
-    </section>
-  );
-};
+  render() {
+    const details = this.state.selectedMovie;
+    const clickedImage = (
+      <img
+        style={{ width: "17.5vw", height: "25vw" }}
+        src={details.poster_path}
+      />
+    );
+    const backimg = {
+      backgroundImage: `url(${details.backdrop_path})`,
+      height: "35vw",
+      width: "70vw",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+    };
+    return (
+      <section style={backimg} className="detailsContainer">
+        <div className="moviePoster">{clickedImage}</div>
+        <div className="movieDetails">
+          <h1>{details.title}</h1>
+          <h3>{details.overview}</h3>
+          <p>Release date: {details.release_date} </p>
+          <p>Average rating: {details.average_rating}</p>
+          <p>Genres: {details.genres}</p>
+          <p>Budget: {details.budget}</p>
+          <p>Revenue: {details.revenue}</p>
+          <p>Runtime: {details.runtime} min</p>
+        </div>
+      </section>
+    );
+  }
+}
 
 export default Details;
