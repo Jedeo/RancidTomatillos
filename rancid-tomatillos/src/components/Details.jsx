@@ -10,7 +10,20 @@ class Details extends Component {
     };
   }
 
-  
+  componentDidMount() {
+    const id = window.localStorage.getItem("Id");
+    fetch(
+      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${parseInt(id)}`
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState(
+          () => {
+            return { selectedMovie: data.movie };
+          }
+        )
+      );
+  }
 
   render() {
     const details = this.state.selectedMovie;
