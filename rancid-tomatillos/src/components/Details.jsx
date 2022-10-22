@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Details.css";
-import { render } from "@testing-library/react";
 
 class Details extends Component {
   constructor() {

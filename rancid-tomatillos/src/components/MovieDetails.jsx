@@ -5,7 +5,7 @@ import './MovieDetails.css'
 const MovieDetails = ({details, id}) => {
     return (
         <div className="movieDetailsContainer">
-            <Details details={details} id={id}/>
+            <Details details={details}/>
         </div>
     )
 }
