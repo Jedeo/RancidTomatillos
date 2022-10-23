@@ -1,18 +1,15 @@
-
-
 img {
   border-radius: 10px;
 }
 
 .detailsContainer{
+ padding: 20px;
  display: flex;
  justify-content: space-around;
  align-items: center;
  width: 90vw;
  border-radius: 10px;
  height: fit-content;
-
-
 }
 
 .moviePoster,.movieDetails{

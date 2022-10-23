@@ -3,5 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+
+  padding: 50px;
+  background-color: #141414;
+  border-radius: 10px;
+  background: rgba(20,20,20, .3)
+}
+
+.individualCard {
+  width: 300px;
 }
