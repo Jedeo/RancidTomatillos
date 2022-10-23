@@ -14,12 +14,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: {},
       errorMessage: '',
       error: false,
-      movie: {
-        isClick: false,
-      },
     };
   }
 
@@ -39,12 +35,6 @@ class App extends Component {
       .catch((err) => this.setState({error: true }))
   };
 
-
-
-  handleClick = (id) => {
-    window.localStorage.setItem('Id', JSON.stringify(id))
-  }
-  
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
     const movieList = allMovies.movies.filter((movie) => {
@@ -60,7 +50,6 @@ class App extends Component {
     if (movieName.length == 0 || movieList.length === 0) {
       this.fetchData();
     }
-    return <span>Sorry the movie is not available</span>;
   };
 
   render() {
@@ -86,10 +75,10 @@ class App extends Component {
             )}
           />
           <Route
-            path="/movieDetails"
-            render={() => <div className="navbarMovieDetails"> <Navbar/> <MovieDetails details={this.state.selectedMovie}/> </div>}
-          />
-        </Switch>
+            path="/movieDetails/:id"
+            render={({match}) => {
+              return (<div className="navbarMovieDetails"> <Navbar/> <MovieDetails movieId={match.params.id} details={this.state.selectedMovie}/> </div>)}}/>
+        </Switch> 
       </main>
     );
   }

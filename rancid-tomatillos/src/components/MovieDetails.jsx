@@ -2,10 +2,10 @@ import React from "react";
 import Details from "./Details";
 import './MovieDetails.css'
 
-const MovieDetails = ({details, id}) => {
+const MovieDetails = ({details,movieId}) => {
     return (
         <div className="movieDetailsContainer">
-            <Details details={details}/>
+            <Details movieId={movieId} details={details}/>
         </div>
     )
 }
