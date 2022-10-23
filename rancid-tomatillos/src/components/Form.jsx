@@ -19,6 +19,8 @@ class Form extends Component {
   };
 
   render() {
+    console.log(this.props);
+    const {filterMessage} = this.props
     return (
       <form className="form-Content">
         <input
@@ -28,6 +30,7 @@ class Form extends Component {
           onChange={this.handleChange}
           placeholder="Search Movie"
         />
+        {filterMessage.length !== 0 && <p>{filterMessage}</p>}
       </form>
     );
   }

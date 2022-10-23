@@ -16,6 +16,7 @@ class App extends Component {
       movies: [],
       errorMessage: '',
       error: false,
+      filterMessage: ''
     };
   }
 
@@ -37,9 +38,17 @@ class App extends Component {
 
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
+  
     const movieList = allMovies.movies.filter((movie) => {
       return movie.title.toLowerCase().includes(movieName.toLowerCase());
     });
+
+    if(movieList.length === 0){
+      this.setState(()=>{return {filterMessage: `${movieName} Not In data Base`}})
+      console.log("no movie")
+    }else{
+      this.setState(()=>{return {filterMessage: ''}})
+    }
 
     if (movieName.length !== 0) {
       this.setState({
@@ -63,7 +72,7 @@ class App extends Component {
               <React.Fragment>
                 <div className="navbarForm">
                 <Navbar handleSearch={this.handleSearch} />
-                <Form className="searchForm" handleSearch={this.handleSearch}/>
+                <Form filterMessage={this.state.filterMessage} className="searchForm" handleSearch={this.handleSearch}/>
                 </div>
                 <Movie
                   error={this.state.error}
