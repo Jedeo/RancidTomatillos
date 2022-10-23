@@ -38,7 +38,7 @@ describe('home page', () => {
     cy.intercept(
       'GET',
       "https://rancid-tomatillos.herokuapp.com/api/v2/movies",
-      { statusCode: 404 }
+      { statusCode: 500 }
     ).as('getServerFailure')
 
     cy.get(".movieData")

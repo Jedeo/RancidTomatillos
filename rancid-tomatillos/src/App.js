@@ -16,13 +16,15 @@ class App extends Component {
       movies: [],
       errorMessage: '',
       error: false,
-      filterMessage: ''
+      filterMessage: '',
     };
   }
 
   componentDidMount() {
     this.fetchData();
   }
+
+
 
   fetchData = () => {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
@@ -32,13 +34,13 @@ class App extends Component {
         }
         throw new Error(this.setState({errorMessage: response.status}))
       })
-      .then((data) => this.setState({ movies: data.movies }))
+      .then((data) => this.setState({ movies: data.movies, loading: false }))
       .catch((err) => this.setState({error: true }))
   };
 
   handleSearch = (movieName) => {
     const allMovies = { ...this.state };
-  
+
     const movieList = allMovies.movies.filter((movie) => {
       return movie.title.toLowerCase().includes(movieName.toLowerCase());
     });
@@ -75,6 +77,7 @@ class App extends Component {
                 <Form filterMessage={this.state.filterMessage} className="searchForm" handleSearch={this.handleSearch}/>
                 </div>
                 <Movie
+                  loading={this.state.loading}
                   error={this.state.error}
                   errorMessage={this.state.errorMessage}
                   handleClick={this.handleClick}
@@ -87,7 +90,7 @@ class App extends Component {
             path="/movieDetails/:id"
             render={({match}) => {
               return (<div className="navbarMovieDetails"> <Navbar/> <MovieDetails movieId={match.params.id} details={this.state.selectedMovie}/> </div>)}}/>
-        </Switch> 
+        </Switch>
       </main>
     );
   }
