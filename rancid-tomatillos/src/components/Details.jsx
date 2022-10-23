@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import "./Details.css";
 
 class Details extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       selectedMovie: {},
+      id: props.id
     };
   }
 
   componentDidMount() {
-    const id = window.localStorage.getItem("Id");
+    const {movieId} = this.props
     fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${parseInt(id)}`
+      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`
     )
       .then((response) => response.json())
       .then((data) =>
