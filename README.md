@@ -8,7 +8,7 @@
   <br>
 </h1>
 
-<h4 align="center"> A Movie Review Aplication <a href="" target="_blank">Electron</a>.</h4>
+<h4 align="center"> A Movie Review Aplication <a href="" target="_blank">Comming Soon </a>.</h4>
 
 <p align="center">
   <a href="#Key-Features">Key Features</a> •
