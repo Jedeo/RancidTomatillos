@@ -16,12 +16,12 @@
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
 </p>
+https://user-images.githubusercontent.com/16736352/197651371-38d39d39-8a5c-41ce-bdec-4703afdfd346.mp4
 
-![screenshot](https://user-images.githubusercontent.com/16736352/197650378-cf586eac-8d61-4fa8-8c20-53bcfabaed5f.mp4 / GIF)
 
 ## Key Features
 
-https://user-images.githubusercontent.com/16736352/197651371-38d39d39-8a5c-41ce-bdec-4703afdfd346.mp4
+
 
 
 - 
