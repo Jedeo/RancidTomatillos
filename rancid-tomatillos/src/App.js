@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Movie from "./components/Movie";
 import Navbar from "./components/Navbar";
 import MovieDetails from "./components/MovieDetails";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
 import Form from "./components/Form";
 import "./App.css";
@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       movies: [],
       errorMessage: "",
+      loading: true,
       error: false,
       filterMessage: "",
     };
@@ -22,6 +23,10 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
+  }
+
+  getError = (error) => {
+    this.setState(()=>{return {errorMessage: error}})
   }
 
   fetchData = () => {
@@ -47,7 +52,6 @@ class App extends Component {
       this.setState(() => {
         return { filterMessage: `${movieName} Not In data Base` };
       });
-      console.log("no movie");
     } else {
       this.setState(() => {
         return { filterMessage: "" };
@@ -66,6 +70,10 @@ class App extends Component {
   };
 
   render() {
+    if(this.state.error === true){
+      return <Redirect to="/pageNotFound"/>
+    }
+
     return (
       <main className="flexStyle">
         <Switch>
@@ -93,13 +101,14 @@ class App extends Component {
             )}
           />
           <Route
+            exact
             path="/movieDetails/:id"
             render={({ match }) => {
               return (
                 <div className="navbarMovieDetails">
                   {" "}
                   <Navbar />{" "}
-                  <MovieDetails
+                  <MovieDetails getError={this.getError}
                     movieId={match.params.id}
                     details={this.state.selectedMovie}
                   />{" "}
@@ -107,7 +116,7 @@ class App extends Component {
               );
             }}
           />
-          <Route path="/pageNotFound" render={()=> <PageNotFound/>}/>
+          <Route path="/pageNotFound" render={()=> <PageNotFound error={this.state.errorMessage}/>}/>
         </Switch>
       </main>
     );
