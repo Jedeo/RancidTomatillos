@@ -3,7 +3,8 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://user-images.githubusercontent.com/16736352/197651709-6fd48665-b29a-4499-94eb-8b5726123d99.png" alt="RancidTomatillos" width="200"></a>
   <br>
-   RancidTomatillos
+   P E T R I F I E D <br>
+P O T A T O </br>
 
   <br>
 </h1>
