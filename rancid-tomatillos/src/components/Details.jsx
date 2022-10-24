@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import "./Details.css";
 
 class Details extends Component {
@@ -6,23 +7,28 @@ class Details extends Component {
     super(props);
     this.state = {
       selectedMovie: {},
-      id: props.id
+      id: props.id,
+      isRedirectTrue: false, 
+      error: ''
     };
   }
 
-  componentDidMount() {
-    const {movieId} = this.props
-    fetch(
+  async componentDidMount() {
+    const { movieId } = this.props;
+    const resp = await fetch(
       `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`
-    )
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState(
-          () => {
-            return { selectedMovie: data.movie };
-          }
-        )
-      );
+    ).catch((error) => console.log(error));
+    if(resp.status === 404){
+      const respJson = await resp.json();
+      this.setState(()=> {return {error: respJson, isRedirectTrue: true}}, ()=> {console.log(this.state)})
+    }else{
+      const respJson = await resp.json();
+      await this.setState(() => {
+        
+        return { selectedMovie: respJson.movie };
+      });
+  
+    }
   }
 
   render() {
@@ -40,9 +46,15 @@ class Details extends Component {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
     };
+
+    if(this.state.isRedirectTrue === true){
+      console.log("Redirecting");
+      return <Redirect to="/pageNotFound" />
+    }
+
     return (
       <section style={backimg} className="detailsContainer">
-        <div className="moviePoster">{clickedImage}</div>
+      <div className="moviePoster">{clickedImage}</div>
         <div className="movieDetails">
           <h1>{details.title}</h1>
           <h3>{details.overview}</h3>
