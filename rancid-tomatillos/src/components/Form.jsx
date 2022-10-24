@@ -19,7 +19,6 @@ class Form extends Component {
   };
 
   render() {
-    console.log(this.props);
     const {filterMessage} = this.props
     return (
       <form className="form-Content">

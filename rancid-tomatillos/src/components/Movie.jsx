@@ -11,9 +11,9 @@ import "swiper/css/scrollbar";
 
 const Movie = ({ loading, error, errorMessage, movies, handleClick }) => {
   const slidesLength = (movies.length < 4 && movies.length > 0 ? movies.length : 4);
-  const moviesData = movies.map((movie, index) => (
-    <SwiperSlide>
-    <MovieCard  key={index} handleClick={handleClick} movieInfo={movie} loading={loading} />
+  const moviesData = movies.map((movie) => (
+    <SwiperSlide key={movie.id}>
+    <MovieCard  key={movie.id} handleClick={handleClick} movieInfo={movie} loading={loading} />
     </SwiperSlide>
 
   ));

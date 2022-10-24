@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Movie from "./components/Movie";
 import Navbar from "./components/Navbar";
 import MovieDetails from "./components/MovieDetails";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PageNotFound from "./components/PageNotFound";
 import Form from "./components/Form";
 import "./App.css";
-
 
 // YOUTUBE SETUP www.youtube.com/watch?v="key"
 
@@ -14,9 +14,9 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      errorMessage: '',
+      errorMessage: "",
       error: false,
-      filterMessage: '',
+      filterMessage: "",
     };
   }
 
@@ -24,18 +24,16 @@ class App extends Component {
     this.fetchData();
   }
 
-
-
   fetchData = () => {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then((response) => {
-        if(response.ok) {
-          return response.json()
+        if (response.ok) {
+          return response.json();
         }
-        throw new Error(this.setState({errorMessage: response.status}))
+        throw new Error(this.setState({ errorMessage: response.status }));
       })
       .then((data) => this.setState({ movies: data.movies, loading: false }))
-      .catch((err) => this.setState({error: true }))
+      .catch((err) => this.setState({ error: true }));
   };
 
   handleSearch = (movieName) => {
@@ -45,11 +43,15 @@ class App extends Component {
       return movie.title.toLowerCase().includes(movieName.toLowerCase());
     });
 
-    if(movieList.length === 0){
-      this.setState(()=>{return {filterMessage: `${movieName} Not In data Base`}})
-      console.log("no movie")
-    }else{
-      this.setState(()=>{return {filterMessage: ''}})
+    if (movieList.length === 0) {
+      this.setState(() => {
+        return { filterMessage: `${movieName} Not In data Base` };
+      });
+      console.log("no movie");
+    } else {
+      this.setState(() => {
+        return { filterMessage: "" };
+      });
     }
 
     if (movieName.length !== 0) {
@@ -73,8 +75,12 @@ class App extends Component {
             render={() => (
               <React.Fragment>
                 <div className="navbarForm">
-                <Navbar handleSearch={this.handleSearch} />
-                <Form filterMessage={this.state.filterMessage} className="searchForm" handleSearch={this.handleSearch}/>
+                  <Navbar handleSearch={this.handleSearch} />
+                  <Form
+                    filterMessage={this.state.filterMessage}
+                    className="searchForm"
+                    handleSearch={this.handleSearch}
+                  />
                 </div>
                 <Movie
                   loading={this.state.loading}
@@ -88,8 +94,20 @@ class App extends Component {
           />
           <Route
             path="/movieDetails/:id"
-            render={({match}) => {
-              return (<div className="navbarMovieDetails"> <Navbar/> <MovieDetails movieId={match.params.id} details={this.state.selectedMovie}/> </div>)}}/>
+            render={({ match }) => {
+              return (
+                <div className="navbarMovieDetails">
+                  {" "}
+                  <Navbar />{" "}
+                  <MovieDetails
+                    movieId={match.params.id}
+                    details={this.state.selectedMovie}
+                  />{" "}
+                </div>
+              );
+            }}
+          />
+          <Route path="/pageNotFound" render={()=> <PageNotFound/>}/>
         </Switch>
       </main>
     );
