@@ -17,7 +17,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](<iframe src='https://gfycat.com/ifr/GranularIndelibleEland' frameborder='0' scrolling='no' allowfullscreen width='640' height='471'></iframe>)
+![screenshot](https://user-images.githubusercontent.com/16736352/197650378-cf586eac-8d61-4fa8-8c20-53bcfabaed5f.mp4)
 
 ## Key Features
 - 
