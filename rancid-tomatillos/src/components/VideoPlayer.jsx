@@ -6,7 +6,7 @@ const VideoPlayer = ({keys}) => {
     width="52vw"
     controls
     url={`https://www.youtube.com/watch?v=${keys[0]}`}
-    onError={(e)=> {console.log(e)}}
+    // onError={(e)=> {console.log(e)}}
   />)
 }
 

@@ -18,10 +18,20 @@ class Form extends Component {
     this.props.handleSearch(this.state.searchedMovie);
   };
 
+  handleClear = (e) => {
+    e.preventDefault()
+    const {fetchData} = this.props
+    this.setState(()=>{return {searchedMovie: ""}})
+    fetchData()
+  }
   render() {
     const {filterMessage} = this.props
+    const searchClear ={
+      display: "flex"
+    }
     return (
       <form className="form-Content">
+        <div style={searchClear}>
         <input
           className="searchInput"
           name="searchedMovie"
@@ -29,6 +39,8 @@ class Form extends Component {
           onChange={this.handleChange}
           placeholder="Search Movie"
         />
+        <button onClick={(e)=> this.handleClear(e)}>Clear</button>
+        </div>
         {filterMessage.length !== 0 && <p>{filterMessage}</p>}
       </form>
     );

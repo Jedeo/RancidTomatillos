@@ -16,9 +16,10 @@ describe('home page', () => {
 
   it('should show details of movie when clicked', () => {
     cy.get(':nth-child(1) > a > .posterImg').click()
-    cy.get('.movieDetailsContainer')
-    .children('.detailsContainer')
-    .children('.moviePoster')
+    cy.get('.movieDetails')
+    //cy.get('[data-layer="Content"]')
+    // .children('.detailsContainer')
+    // .children('.moviePoster')
   })
 
   it('should not show any other movies when a single movie is displayed', () => {
