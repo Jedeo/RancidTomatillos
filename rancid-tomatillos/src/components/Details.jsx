@@ -14,13 +14,13 @@ class Details extends Component {
   }
 
   async componentDidMount() {
-    const { movieId } = this.props;
+    const { movieId, getError } = this.props;
     const resp = await fetch(
       `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`
     ).catch((error) => console.log(error));
-    if(resp.status === 404){
+    if(resp.status >= 400){
       const respJson = await resp.json();
-      this.setState(()=> {return {error: respJson, isRedirectTrue: true}}, ()=> {console.log(this.state)})
+      this.setState(()=> {return {error: respJson, isRedirectTrue: true}}, ()=> {getError(respJson)})
     }else{
       const respJson = await resp.json();
       await this.setState(() => {
@@ -48,7 +48,7 @@ class Details extends Component {
     };
 
     if(this.state.isRedirectTrue === true){
-      console.log("Redirecting");
+    
       return <Redirect to="/pageNotFound" />
     }
 
