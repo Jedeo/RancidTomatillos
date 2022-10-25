@@ -85,6 +85,7 @@ class App extends Component {
                 <div className="navbarForm">
                   <Navbar handleSearch={this.handleSearch} />
                   <Form
+                    fetchData={this.fetchData}
                     filterMessage={this.state.filterMessage}
                     className="searchForm"
                     handleSearch={this.handleSearch}
