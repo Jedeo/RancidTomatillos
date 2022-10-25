@@ -27,7 +27,12 @@ https://user-images.githubusercontent.com/16736352/197651489-6ab8eb7c-bab8-46af-
 
 ## Key Features
 - Filtering through movies is possible using the search bar
-- A movie's details can be viewed by clicking on it 
+- A movie's details can be viewed by clicking on it
+- When a user attempts to view a movie that isn't listed in the fetch data list, they will be redirected to a 'page not found'. It is still possible for users to get back to the home page by clicking the “return home” button.
+
+## Learning Goals
+- Utilizing iterators appropriately, building on the foundation of vanilla javascript. Workflow, useful commits. 
+- Understand how react components work and how data is passed between children and parents
 
 ## How To Use
 
@@ -58,7 +63,7 @@ This software uses the following open source packages:
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/)
 - [React Router](https://reactrouter.com/en/main)
-- [SwiperJs](https://swiperjs.com/)
+- [Video React](https://video-react.js.org/)
 
 ## Contributors
 ###### Jedeo Manirikunatewe
