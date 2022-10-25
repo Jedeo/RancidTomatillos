@@ -30,6 +30,7 @@ https://user-images.githubusercontent.com/16736352/197651489-6ab8eb7c-bab8-46af-
 
 
 
+
 - 
 
 ## How To Use
@@ -51,7 +52,7 @@ $ npm start
 ```
 
 > **Note**
-> ---------notes on other Dependecies need to get the application running
+> You may need to install ` React Routor` and `Swiper` all you need is `npm i react-router-dom@5.3.0` and `npm i swiper`
 
 
 ## Credits
