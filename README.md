@@ -65,10 +65,11 @@ This software uses the following open source packages:
 - [SwiperJs](https://swiperjs.com/)
 
 ## Contributors
-####### Jedeo Manirikunatewe
+###### Jedeo Manirikunatewe
 > GitHub [@jedeo](https://github.com/Jedeo) &nbsp;&middot;&nbsp;
 > LinkedIn [@Jedeo](https://www.linkedin.com/in/jedeo/)
-####### Conner Corcoran
+
+###### Conner Corcoran
 > GitHub [@Connorcorc](https://github.com/Connorcorc) &nbsp;&middot;&nbsp;
 > LinkedIn [@corcoran](https://www.linkedin.com/in/connor-c-corcoran/)
 
