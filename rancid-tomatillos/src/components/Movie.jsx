@@ -16,28 +16,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const Movie = ({ loading, error, errorMessage, movies }) => {
-  const slidesLength =
-    movies.length < 4 && movies.length > 0 ? movies.length : 4;
   const moviesData = movies.map((movie) => (
-    <SwiperSlide key={movie.id}>
-      <MovieCard key={movie.id} movieInfo={movie} loading={loading} />
-    </SwiperSlide>
+    <MovieCard key={movie.id} movieInfo={movie} loading={loading} />
   ));
   return (
     <div className="movieData">
       {error === true && (
         <h1 className="errorHeader">Error! {errorMessage}. Please Try Again</h1>
       )}
-      <Swiper
-        controls={true}
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={100}
-        style={{ margin: 20 }}
-        slidesPerView={slidesLength}
-        navigation
-      >
-        {moviesData}
-      </Swiper>
+
+      {moviesData}
     </div>
   );
 };
