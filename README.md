@@ -26,12 +26,8 @@ https://user-images.githubusercontent.com/16736352/197651489-6ab8eb7c-bab8-46af-
 
 
 ## Key Features
-
-
-
-
-
-- 
+- Filtering through movies is possible using the search bar
+- A movie's details can be viewed by clicking on it 
 
 ## How To Use
 
